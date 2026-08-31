@@ -1,1 +1,5 @@
-D:\SourceCode\transaction-starter-project\transaction-starter\src\test\java\com\example\transactionstarter\TransactionStarterApplicationTests.java
+E:\toucan\toucan-springboot-starter\src\test\java\com\example\transactionstarter\Tests\CreateTransactionTest.java
+E:\toucan\toucan-springboot-starter\src\test\java\com\example\transactionstarter\Tests\GetTransactionByCustomerIdTest.java
+E:\toucan\toucan-springboot-starter\src\test\java\com\example\transactionstarter\Tests\GetTransactionByIdTest.java
+E:\toucan\toucan-springboot-starter\src\test\java\com\example\transactionstarter\Tests\UpdateTransactionStatusTest.java
+E:\toucan\toucan-springboot-starter\src\test\java\com\example\transactionstarter\TransactionStarterApplicationTests.java

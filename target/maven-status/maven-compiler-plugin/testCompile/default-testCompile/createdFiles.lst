@@ -1,1 +1,5 @@
+com\example\transactionstarter\Tests\GetTransactionByCustomerIdTest.class
+com\example\transactionstarter\Tests\GetTransactionByIdTest.class
+com\example\transactionstarter\Tests\UpdateTransactionStatusTest.class
 com\example\transactionstarter\TransactionStarterApplicationTests.class
+com\example\transactionstarter\Tests\CreateTransactionTest.class

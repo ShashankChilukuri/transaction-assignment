@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.example.transactionstarter.TransactionStarterApplicationTests" time="0.031" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.example.transactionstarter.Tests.UpdateTransactionStatusTest" time="0.071" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="22"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -64,9 +64,13 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="66.0"/>
   </properties>
-  <testcase name="contextLoads" classname="com.example.transactionstarter.TransactionStarterApplicationTests" time="0.012">
-    <system-out><![CDATA[2026-08-31T19:15:32.010+05:30  INFO 23312 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.transactionstarter.TransactionStarterApplicationTests]: TransactionStarterApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-08-31T19:15:32.019+05:30  INFO 23312 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.transactionstarter.TransactionStarterApplication for test class com.example.transactionstarter.TransactionStarterApplicationTests
+  <testcase name="rejectInvalidStatus" classname="com.example.transactionstarter.Tests.UpdateTransactionStatusTest" time="0.006">
+    <system-out><![CDATA[2026-08-31T19:15:31.934+05:30  INFO 23312 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.transactionstarter.Tests.UpdateTransactionStatusTest]: UpdateTransactionStatusTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-08-31T19:15:31.938+05:30  INFO 23312 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.transactionstarter.TransactionStarterApplication for test class com.example.transactionstarter.Tests.UpdateTransactionStatusTest
 ]]></system-out>
   </testcase>
+  <testcase name="cannotUpdateCompletedTransaction" classname="com.example.transactionstarter.Tests.UpdateTransactionStatusTest" time="0.018"/>
+  <testcase name="updateTransactionStatus" classname="com.example.transactionstarter.Tests.UpdateTransactionStatusTest" time="0.02"/>
+  <testcase name="cannotUpdateFailedTransaction" classname="com.example.transactionstarter.Tests.UpdateTransactionStatusTest" time="0.012"/>
+  <testcase name="transactionNotFound" classname="com.example.transactionstarter.Tests.UpdateTransactionStatusTest" time="0.004"/>
 </testsuite>

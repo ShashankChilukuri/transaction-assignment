@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.example.transactionstarter.TransactionStarterApplicationTests" time="0.031" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.example.transactionstarter.Tests.CreateTransactionTest" time="6.642" tests="7" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="22"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -64,9 +64,54 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="66.0"/>
   </properties>
-  <testcase name="contextLoads" classname="com.example.transactionstarter.TransactionStarterApplicationTests" time="0.012">
-    <system-out><![CDATA[2026-08-31T19:15:32.010+05:30  INFO 23312 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.transactionstarter.TransactionStarterApplicationTests]: TransactionStarterApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-08-31T19:15:32.019+05:30  INFO 23312 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.transactionstarter.TransactionStarterApplication for test class com.example.transactionstarter.TransactionStarterApplicationTests
+  <testcase name="rejectInvalidTransactionType" classname="com.example.transactionstarter.Tests.CreateTransactionTest" time="0.956">
+    <system-out><![CDATA[19:15:25.278 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.transactionstarter.Tests.CreateTransactionTest]: CreateTransactionTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:15:25.419 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.transactionstarter.TransactionStarterApplication for test class com.example.transactionstarter.Tests.CreateTransactionTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.5)
+
+2026-08-31T19:15:26.068+05:30  INFO 23312 --- [           main] c.e.t.Tests.CreateTransactionTest        : Starting CreateTransactionTest using Java 22.0.2 with PID 23312 (started by Shashank's in E:\toucan\toucan-springboot-starter)
+2026-08-31T19:15:26.068+05:30  INFO 23312 --- [           main] c.e.t.Tests.CreateTransactionTest        : No active profile set, falling back to 1 default profile: "default"
+2026-08-31T19:15:26.857+05:30  INFO 23312 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-31T19:15:26.949+05:30  INFO 23312 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 69 ms. Found 1 JPA repository interface.
+2026-08-31T19:15:27.458+05:30  INFO 23312 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-08-31T19:15:27.532+05:30  INFO 23312 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2026-08-31T19:15:27.580+05:30  INFO 23312 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-08-31T19:15:28.108+05:30  INFO 23312 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-31T19:15:28.132+05:30  INFO 23312 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-31T19:15:28.323+05:30  INFO 23312 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:transactions user=SA
+2026-08-31T19:15:28.323+05:30  INFO 23312 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-31T19:15:28.401+05:30  INFO 23312 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-08-31T19:15:29.198+05:30  INFO 23312 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-31T19:15:29.230+05:30  INFO 23312 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-31T19:15:30.461+05:30  INFO 23312 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:transactions'
+2026-08-31T19:15:30.618+05:30  INFO 23312 --- [           main] c.e.t.Tests.CreateTransactionTest        : Started CreateTransactionTest in 5.02 seconds (process running for 6.103)
 ]]></system-out>
+    <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (C:\Users\Shashank's\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.7\byte-buddy-agent-1.17.7.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
   </testcase>
+  <testcase name="createTransaction" classname="com.example.transactionstarter.Tests.CreateTransactionTest" time="0.059"/>
+  <testcase name="rejectInvalidCurrency" classname="com.example.transactionstarter.Tests.CreateTransactionTest" time="0.007"/>
+  <testcase name="rejectDuplicateTransactionId" classname="com.example.transactionstarter.Tests.CreateTransactionTest" time="0.009"/>
+  <testcase name="rejectInvalidCustomerId" classname="com.example.transactionstarter.Tests.CreateTransactionTest" time="0.012"/>
+  <testcase name="rejectInvalidAmount" classname="com.example.transactionstarter.Tests.CreateTransactionTest" time="0.004"/>
+  <testcase name="rejectInvalidTransactionStatus" classname="com.example.transactionstarter.Tests.CreateTransactionTest" time="0.014"/>
 </testsuite>
