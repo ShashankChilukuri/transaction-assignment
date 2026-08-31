@@ -1,109 +1,100 @@
-# Transaction Starter Project
+### Validation Rules
 
-This is the starter project for the Customer Transactions exercise.
+The following validation rules are applied when creating a transaction:
 
-## Before you start
+### Transaction ID
+- Transaction ID must be a positive integer.
+- Transaction ID must be unique.
+- If the Transaction ID already exists, the request is rejected with `409 Conflict`.
 
-The first thing you should do after cloning the repository is:
+### Customer ID
+- Customer ID must be greater than `0`.
+- A zero or negative Customer ID is rejected with `400 Bad Request`.
 
-### Linux / macOS
+### Amount
+- Amount is required and must not be `null`.
+- Amount must be greater than `0`.
+- Zero and negative amounts are rejected with `400 Bad Request`.
+- `BigDecimal` is used for the amount to avoid floating-point precision issues.
 
-```bash
-./mvnw clean test
-```
+### Currency
+- Currency is required and must not be `null`.
+- Only `INR` is accepted for this assigned variant.
+- Any other currency is rejected with `400 Bad Request`.
 
-### Windows
+### Transaction Type
+Only the following transaction types are accepted:
 
-```bat
-mvnw.cmd clean test
-```
+- `DEPOSIT`
+- `WITHDRAWAL`
+- `TRANSFER`
 
-The sample test should pass before you begin implementing the exercise.
+Null or any other transaction type is rejected with `400 Bad Request`.
 
-## What is already provided
+Transaction types are case-sensitive.
 
-- Java 17
-- Spring Boot
-- Maven wrapper
-- Spring Web
-- Spring Data JPA
-- H2 embedded database
-- JUnit / Spring Boot Test
-- A sample REST endpoint: `GET /api/sample`
-- A sample test that loads the Spring context
+Examples:
+- `DEPOSIT` → valid
+- `WITHDRAWAL` → valid
+- `TRANSFER` → valid
+- `deposit` → invalid
+- `PAYMENT` → invalid
+- `null` → invalid
 
+### Transaction Status
+The following statuses are accepted:
 
-## Exercise
+- `PENDING`
+- `COMPLETED`
+- `FAILED`
 
-Implement these four operations:
+Null or any other status is rejected with `400 Bad Request`.
 
-1. Create transaction
-2. Get transaction
-3. Update transaction status
-4. Get all transactions for a customer
+### Status Transition Rules
 
+A transaction can be updated only while it is in `PENDING` status.
 
-You may change the surrounding design if you believe your solution is better.
+Allowed transitions:
 
-## Transaction fields
+`PENDING → COMPLETED`
 
-Every transaction contains:
+`PENDING → FAILED`
 
-- Transaction ID
-- Customer ID
-- Amount
-- Currency
-- Transaction Type
-- Transaction Status
+Once a transaction reaches `COMPLETED` or `FAILED`, it is treated as a final state and cannot be changed.
 
-### Validation rules
+The following transitions are rejected:
 
-Define what makes a transaction valid. At minimum, consider:
+`COMPLETED → PENDING`
 
-- Transaction ID
-- Customer ID
-- Amount
-- Currency
-- Transaction type
-- Initial status
+`COMPLETED → FAILED`
 
-Also explain any business validation you add beyond the annotations already supplied.
+`FAILED → PENDING`
 
-## API skeleton
+`FAILED → COMPLETED`
 
-### Create
+Updating a transaction to its existing status is also rejected because there is no state change.
 
-`TODO`
+### Testing
 
-Example:
+The complete test suite was executed successfully using Maven and Junit.
 
-```
-TODO
-```
+## Run Tests
 
-### Get
+On Windows: mvn clean test
 
-`TODO`
+## Test Results
 
-### Update status
+` 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  10.921 s
+[INFO] Finished at: 2026-08-31T19:01:43+05:30
+[INFO] ------------------------------------------------------------------------
+`
 
-`TODO`
-
-Example:
-
-```
-TODO
-```
-
-### Get customer transactions
-
-`TODO`
-
-## Testing expectations
-
-Add at least four meaningful tests.
-
-Your tests should cover more than just application startup. 
-
-You decide exactly which tests provide the best coverage.
-
+"# transaction-assignment" 
