@@ -1,3 +1,28 @@
+### Understanding of the Problem
+
+The application is a REST API for managing customer transactions. It supports creating transactions, retrieving a transaction by its Transaction ID, updating the status of a transaction, and retrieving all transactions for a Customer ID.
+
+The application uses Spring Boot, Spring Data JPA and an H2 database to store and manage transaction data.
+
+### Assumptions
+
+- Transaction IDs and Customer IDs are positive integers.
+- Transaction IDs are unique.
+- Only INR is supported for this assigned variant.
+- Transaction types are DEPOSIT, WITHDRAWAL, and TRANSFER.
+- A newly created transaction can have PENDING, COMPLETED, or FAILED status.
+- COMPLETED and FAILED are treated as final statuses.
+
+### API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/transactions` | Create a new transaction |
+| GET | `/transactions/{tranId}` | Get a transaction by Transaction ID |
+| GET | `/customer/transactions/{cusId}` | Get all transactions for a Customer ID |
+| PUT | `/transactions/{tranId}/status` | Update the status of a transaction |
+
+
 ### Validation Rules
 
 The following validation rules are applied when creating a transaction:
@@ -74,6 +99,12 @@ The following transitions are rejected:
 
 Updating a transaction to its existing status is also rejected because there is no state change.
 
+### Known Limitations
+- Currently, only INR is supported because of the assigned variant.
+- Authentication and authorization are not implemented.
+- Pagination is not implemented for customer transaction lookup.
+- The API currently uses simple response handling rather than a more advanced error-handling mechanism.
+
 ### Testing
 
 The complete test suite was executed successfully using Maven and Junit.
@@ -97,4 +128,10 @@ On Windows: mvn clean test
 [INFO] ------------------------------------------------------------------------
 `
 
-"# transaction-assignment" 
+## What I Would Improve With More Time
+
+- Use enums for transaction type and status instead of strings.
+- Add Bean Validation annotations for request validation.
+- Add more API-level integration tests.
+- Add pagination for customer transaction results.
+- Improve the response structure and error messages further.
